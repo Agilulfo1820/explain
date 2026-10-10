@@ -1,0 +1,4 @@
+# Explainers are about private codebases: they stay local by default.
+# To publish one that is safe to share, add it with `git add -f`.
+20??-??-??-*/
+.DS_Store
