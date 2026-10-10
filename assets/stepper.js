@@ -45,7 +45,7 @@
     const controls = document.createElement('div');
     controls.className = 'controls';
     controls.innerHTML =
-      '<button type="button" class="prev">← Indietro</button><button type="button" class="next">Avanti →</button><div class="dots"></div><span class="count"></span>';
+      `<button type="button" class="prev">${window.explainerText('prev')}</button><button type="button" class="next">${window.explainerText('next')}</button><div class="dots"></div><span class="count"></span>`;
     svg.after(controls);
     const prev = controls.querySelector('.prev');
     const next = controls.querySelector('.next');
@@ -135,12 +135,12 @@
       Array.from(tabs.children).forEach((b, k) => b.setAttribute('aria-pressed', String(k === sc)));
       prev.disabled = idx === 0;
       next.disabled = idx === all.length - 1;
-      count.textContent = `passo ${idx + 1} di ${all.length}`;
+      count.textContent = window.explainerText('step', { i: idx + 1, n: all.length });
       dots.innerHTML = '';
       all.forEach((_, k) => {
         const d = document.createElement('button');
         d.type = 'button';
-        d.setAttribute('aria-label', `Passo ${k + 1}`);
+        d.setAttribute('aria-label', window.explainerText('stepLabel', { i: k + 1 }));
         if (k === idx) d.className = 'current';
         d.addEventListener('click', () => show(sc, k));
         dots.appendChild(d);

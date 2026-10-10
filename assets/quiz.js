@@ -36,7 +36,14 @@
       const shown = questions.filter(visible);
       const answered = shown.filter((q) => q.classList.contains('answered'));
       const right = answered.filter((q) => !q.classList.contains('wrong'));
-      if (score) score.textContent = `${answered.length}/${shown.length} risposte · ${right.length} ${right.length === 1 ? 'giusta' : 'giuste'}`;
+      if (score) {
+        score.textContent = window.explainerText('score', {
+          answered: answered.length,
+          total: shown.length,
+          right: right.length,
+          rightWord: window.explainerText(right.length === 1 ? 'rightOne' : 'rightMany'),
+        });
+      }
       if (!summary) return;
       if (answered.length < shown.length || shown.length === 0) {
         summary.classList.remove('show');
@@ -44,10 +51,10 @@
       }
       const missed = answered.filter((q) => q.classList.contains('wrong'));
       summary.innerHTML = missed.length
-        ? `<strong>${right.length} su ${shown.length}.</strong> Niente di grave: è proprio il punto del quiz. Ecco cosa ti conviene rivedere:<ul>${missed
+        ? `${window.explainerText('summaryMissed', { right: right.length, total: shown.length })}<ul>${missed
             .map((q) => `<li>${q.querySelector('h4').textContent.replace(/^\d+\.\s*/, '')}<br>${q.querySelector('.learn')?.innerHTML ?? ''}</li>`)
             .join('')}</ul>`
-        : `<strong>${right.length} su ${shown.length}.</strong> Hai il modello mentale giusto. Se vuoi andare più a fondo, chiedi all'agente qualche “cosa succederebbe se…” sui punti che ti hanno incuriosito.`;
+        : window.explainerText('summaryAll', { right: right.length, total: shown.length });
       summary.classList.add('show');
     }
 
@@ -90,7 +97,7 @@
     if (ids.length) {
       const bar = document.createElement('div');
       bar.className = 'quiz-filter';
-      const chips = [['', 'Tutte']].concat(ids.map((id) => [id, document.getElementById(id)?.dataset.title || id]));
+      const chips = [['', window.explainerText('all')]].concat(ids.map((id) => [id, document.getElementById(id)?.dataset.title || id]));
       chips.forEach(([id, label]) => {
         const b = document.createElement('button');
         b.type = 'button';

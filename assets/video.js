@@ -13,9 +13,11 @@
     const frame = document.createElement('button');
     frame.type = 'button';
     frame.className = 'yt-frame';
-    frame.setAttribute('aria-label', `Guarda: ${title}`);
+    frame.setAttribute('aria-label', window.explainerText('watch', { title }));
     frame.innerHTML = `<img src="https://i.ytimg.com/vi/${id}/hqdefault.jpg" alt="" loading="lazy"><span class="play">▶</span>${
-      start ? `<span class="from">dal minuto ${Math.floor(start / 60)}:${String(start % 60).padStart(2, '0')}</span>` : ''
+      start
+        ? `<span class="from">${window.explainerText('from', { time: `${Math.floor(start / 60)}:${String(start % 60).padStart(2, '0')}` })}</span>`
+        : ''
     }`;
     frame.addEventListener('click', () => {
       const iframe = document.createElement('iframe');

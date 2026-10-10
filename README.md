@@ -1,27 +1,41 @@
-# PR explainers (esperimento)
+# explain
 
-Pagine HTML che fanno *capire* una feature o una serie di PR costruita con un agente: cosa entra, come funziona, perché è fatta così, quali alternative c'erano. Non è una code review. Leggi `VISION.md` per l'idea completa.
+A Claude Code skill that turns a PR, a stack of PRs or an agent session into an **explainer**: a small, illustrated course that makes you *understand* a feature an AI agent built for you. Not a code review: the concepts, how the solution is reached, how it fits into the rest of the system, and why it beat the alternatives.
 
-Ogni spiegazione è un piccolo **corso a moduli** con una sidebar:
-- i **concetti di dominio** spiegati per un developer mid-level;
-- **come ci si arriva** (dalla soluzione ingenua a quella vera) e **come si unisce al resto** della piattaforma;
-- **diagrammi animati passo per passo**, con lo snippet di codice di ogni passo;
-- **video incorporati** e fonti verificate dentro i moduli, ognuna con il perché;
-- un modulo **“In 3 minuti”**;
-- un **quiz** non bloccante sui concetti, su una pagina a parte, che spiega ogni risposta sbagliata e indica cosa rivedere.
+Each explainer has:
+- the **domain concepts**, explained for a mid-level developer;
+- **how you get there** (from the naive design to the real one) and **how it fits in** with the rest of the system;
+- **animated step-by-step diagrams**, with the code snippet of each step;
+- **embedded videos** and verified sources inside the modules, each with a reason to read or watch it;
+- an **"In 3 minutes"** module;
+- a non-blocking **quiz** on transferable concepts, on its own page, that explains every wrong answer and points to what to review.
 
-## Struttura
-- `skill/explain/` — la skill `/explain`: il processo, il template e gli script (`quiz.py` genera il quiz da `quiz.json`, `check.py` controlla link, video, ancore e quiz). È collegata in `~/.claude/skills/explain` con un link simbolico.
-- `assets/` — componenti condivisi (il contratto del markup è nel commento in testa a ogni file):
-  - `explainer.css` — stile (chiaro e scuro);
-  - `course.js` — sidebar, un modulo alla volta, link avanti/indietro, schede;
-  - `stepper.js` — diagramma SVG passo per passo, con scenari e modalità “costruzione”;
-  - `video.js` — video YouTube incorporati, caricati solo al clic;
-  - `quiz.js` — quiz con spiegazione per ogni opzione, filtro per modulo e riepilogo di cosa rivedere.
-- `AAAA-MM-GG-<tema>/index.html` — una spiegazione per serie di PR. **Restano in locale** (sono nel `.gitignore`): parlano quasi sempre di codice privato. Per pubblicarne una sicura, `git add -f`.
+## Install
 
-## Vederle
+```sh
+git clone https://github.com/Agilulfo1820/explain.git ~/explain
+ln -s ~/explain/skill/explain ~/.claude/skills/explain
 ```
-python3 -m http.server 8765
+
+Then, in Claude Code, inside the repository you want explained: `/explain 1882 1883 1884` (PR numbers), or ask "explain this session".
+
+## View an explainer
+
+```sh
+cd ~/explain && python3 -m http.server 8765
 ```
-poi apri http://localhost:8765/AAAA-MM-GG-tema/ (ogni modulo ha il suo indirizzo, per esempio `#stt` o `#quiz`).
+
+Open `http://localhost:8765/<YYYY-MM-DD-topic>/`. Every module has its own address (e.g. `#quiz`).
+
+## Layout
+
+- `skill/explain/` — the skill: the process (`SKILL.md`), `template.html`, and two scripts: `quiz.py` builds the quiz from `quiz.json`, `check.py` checks links, videos, anchors and quiz before delivery.
+- `assets/` — shared components (each file documents its markup in its header comment):
+  - `explainer.css` — styles, light and dark;
+  - `i18n.js` — UI strings by `<html lang>` (English, Italian);
+  - `course.js` — sidebar, one module at a time, prev/next, tabs;
+  - `stepper.js` — step-by-step SVG diagrams, with scenarios and a "build-up" mode;
+  - `video.js` — YouTube embeds that load on click;
+  - `quiz.js` — quiz with an explanation per option, per-module filter and a summary of what to review.
+- `YYYY-MM-DD-<topic>/` — the generated explainers. **Git-ignored**: they usually describe private code. To publish one that is safe to share, `git add -f` it.
+- `VISION.md` — where the product is heading (a desktop app and a GitHub App), with the author's notes.

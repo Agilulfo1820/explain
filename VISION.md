@@ -1,7 +1,7 @@
 # PR Explainers: product vision and Dan's notes
 
 > Living document. Collects **everything** Dan said about the "PR explainer" idea, so nothing gets lost.
-> Part 1 is an organised summary. Part 2 is the **verbatim transcription** of his messages (source of truth).
+> Part 1 is an organised summary. Part 2 is a **faithful English translation** of his messages, which he dictates in Italian (source of truth).
 > Started 2026-10-09.
 
 ---
@@ -29,6 +29,10 @@
 - A **"3 minutes" mode** as an **additional** option, alongside the full version.
 - **Animated, step-by-step diagrams** would be a nice touch.
 - **Assumed baseline:** we're all **mid-level developers** (not juniors), so no need to explain trivial concepts. But **domain concepts** unknown even to a senior (e.g. TTS, STT, how voice-to-voice works) **must be explained well**.
+
+### Language
+- Everything in the repository (code, comments, docs, skill, this file) is in **English**; the audience is international. Dan writes to the agent in Italian, and his messages are logged here in translation.
+- Explainers default to English; another language only on request.
 
 ### Quiz
 - It has to **make you think**: test whether you've *understood*, not whether you've *read*.
@@ -63,9 +67,9 @@
 
 ### Showing the PRs (feedback 2026-10-09)
 - Bare PR numbers are not enough. The reader must see at a glance **which PRs are the subject** (open, to merge, in stack order) and **which are context** (older, already merged, included because the concepts belong together).
-- Pulling in related older PRs is welcome ("è fatto giusto bene"): the concepts should be seen as a whole.
+- Pulling in related older PRs is welcome ("that's exactly right"): the concepts should be seen as a whole.
 - For each PR: status, what it contains, where the explainer talks about it.
-- **Open question.** A first attempt (two groups in the sidebar, a "Le PR" page with the stack and a card per PR, PR chips at the top of each module) did not convince Dan and was reverted the same day. He wants to think about it.
+- **Open question.** A first attempt (two groups in the sidebar, a "PRs" page with the stack and a card per PR, PR chips at the top of each module) did not convince Dan and was reverted the same day. He wants to think about it.
 
 ### Ask questions in the app (to remember when we build the app)
 - The reader often has a question about a concept. The app should include an **LLM that answers questions on that topic**, inside the explainer (today the page only says "ask the agent").
@@ -106,82 +110,86 @@ Answering my critique, point by point:
 
 ---
 
-## Part 2 — Verbatim transcription of Dan's messages
+## Part 2 — Dan's messages (faithful English translation)
+
+Dan dictates in Italian. Each message is translated as closely as possible, keeping his wording and tone; the Italian originals are in the git history (commit `af06212`). Speech-to-text slips are corrected in brackets.
 
 ### Message 1 (2026-10-09): the experiment
 
-> Allora, prima di mergiare quella serie di PR, voglio fare un esperimento. Questo è un esperimento che poi vorrei anche trasformare o in una skill o in un programma; potrebbe anche essere un programma che si installa sul Mac o su Windows, e non c'entra nulla con questo progetto specifico, queste PR specifiche a cui stiamo lavorando. Il progetto è questo, è che si adatta molto bene a questa feature.
+> So, before merging that series of PRs, I want to try an experiment. It's an experiment I'd like to turn into either a skill or a program; it could even be a program you install on Mac or Windows, and it has nothing to do with this specific project, these specific PRs we're working on. It's just that this feature fits it very well.
 >
-> Praticamente questa è una feature grossa: implementiamo delle cose di cui io non ho conoscenza e la stessa cosa la fanno tante persone. Danno il prompt, fanno il plan, tu proponi delle cose, le implementi e poi bisogna emergiarle se c'è un messaggio, ma poi uno è portato a fare multitasking, quindi andare da un'altra parte oppure dare un altro prompt oppure cazzeggiare sul telefono.
+> Basically this is a big feature: we're implementing things I have no knowledge of, and a lot of people do the same. They give the prompt, they make the plan, you propose things, you implement them, and then they have to be merged when there's a message, but meanwhile you end up multitasking: going somewhere else, giving another prompt, or messing around on your phone.
 >
-> Comunque sia, in entrambi i casi arriva il momento che c'è la PR e bisogna fare review. Comunque noi, che abbiamo creato la PR, dobbiamo emergiarle questa roba e non sappiamo veramente come funziona.
+> Either way, the moment comes when there's the PR and it needs a review. And we, who created the PR, have to merge this stuff without really knowing how it works.
 >
-> Allora l'obiettivo tuo con questa cosa che voglio che andiamo a creare è che crei, per il momento puoi crearlo su una cartella temporanea, una roba del genere che non dobbiamo commentare su questa repo, una specie di presentazione/articolo dove mi spieghi esattamente cosa è stato implementato e come, ma non solo scrivendo testo, ma anche mettendo illustrazioni che mi aiutino a capire, linkando video e articoli in modo tale che io possa approfondire di più, mettendo anche parti, snippet di codice, per farmi capire un po' meglio esattamente, e si può fare addirittura anche un quiz alla fine.
+> So your goal with this thing I want us to build is to create, for now in a temporary folder, something we don't commit to this repo: a sort of presentation/article where you explain to me exactly what was implemented and how. Not just text, but also illustrations that help me understand, links to videos and articles so I can go deeper, code snippets so I understand exactly, and maybe even a quiz at the end.
 >
-> Avevo visto una roba simile fatta con una skill che si chiamava "Teach Me", che adesso te la metto, cioè prova a guardare tra le skill, ci dovrebbe essere "Teach Me" che faceva una cosa simile.
+> I'd seen something similar done with a skill called "Teach Me"; look among the skills, there should be a "Teach Me" that did something like this.
 >
-> Quindi l'obiettivo appunto è spiegarmi cosa è stato implementato, perché è stato implementato, quali altre soluzioni avevamo e perché questa era la migliore; ma non solo che io possa poi studiarla a pappagallo quella roba, ma che io proprio capisca per bene esattamente cos'è questa roba.
+> So the goal is to explain to me what was implemented, why it was implemented, which other solutions we had and why this one was the best; and not so that I can parrot it back, but so that I really understand properly what this thing is.
 
 ### Message 2 (2026-10-09)
 
-> Che cosa potrebbe essere fatto meglio secondo te? Non intendo delle PR, ma di questo X-Player qui.
-
-*(Note: "X-Player" = "explainer", a speech-to-text artefact.)*
+> What do you think could be done better? I don't mean the PRs, I mean this explainer.
 
 ### Message 3 (2026-10-09): feedback and product vision
 
-> Riguardo il punto 2 del fatto che l'ha letto dalla memoria della conversazione, non dal diff, va bene perché comunque questo non è, cioè, non sono interessato a vedere la differenza linea dopo linea; sono interessato a capire il concetto che ci sta dietro, cioè di come questa roba funziona, come se appunto studiassi questa cosa. Mentre riguardo il punto 1, a me può anche stare. Cioè mi piace l'idea che è annesso, è tipo solo tre minuti, quindi ci può stare, potrebbe essere una modalità aggiuntiva in più.
+> About point 2, that it was written from the memory of the conversation and not from the diff: that's fine, because I'm not interested in seeing the line-by-line difference; I'm interested in understanding the concept behind it, how this thing works, as if I were studying it. As for point 1, I'm fine with it. I like the idea of a companion version that's only three minutes; that could be an additional mode.
 >
-> Quindi quello ci sta, però in realtà poi... Io non la farei troppo, non metterei troppi limiti di tempo, non per forza deve essere una cosa veloce, cioè il mio obiettivo è capire come funziona questa cosa, quindi se ci vuole mezz'ora per capire, perché poi tra leggere questo, andare sull'inconsigliate, quant'altro ci vogliono mezz'ora, un'ora, non mi interessa, cioè va bene, uguale, l'importante è che io capisco come funziona. Il fatto che i diagrammi siano statici, se fossero animati, step by step, potrebbe essere una cosa carina. E anche la parte dei quiz, certo, deve essere un tipo di quiz che mi attivi il cervello, che quindi non sia soltanto un qualcosa... cioè hai letto o non hai letto, ma hai capito o non hai capito.
+> So that's fine, but actually... I wouldn't overdo it, I wouldn't put many time limits; it doesn't have to be quick. My goal is to understand how this thing works, so if it takes half an hour, between reading this and going to the recommended links and so on, half an hour or an hour, I don't care, that's fine; what matters is that I understand how it works. The diagrams being static: if they were animated, step by step, that could be nice. And the quiz too, of course: it has to be the kind of quiz that switches my brain on, not just "did you read it or not", but "did you understand it or not".
 >
-> E comunque non devono per forza essere bloccanti questi quiz, quindi se io ho sbagliato mi dice: "No, guarda, perché per questo motivo", quindi mi dà tutta una spiegazione. Riguardo il punto 5, continuo a dire che questo non è una review di un PR, per quello ci sono altri tool, altre cose; questo è un capire che cos'è, cosa viene introdotto. Sì, la cosa che non sa chi sono ci può stare, che sarebbe meglio adattarla e comprendere da me. Magari lo metterei più su un punto successivo, però partirei dal presupposto che siamo tutti developer middle, cioè sicuramente non siamo junior, quindi non c'è bisogno di spiegarmi concetti banali, però se la feature in sé, per esempio, adesso dopo dovremmo implementare il voice to voice, e lì ci sono... TTS che non ho idea di che cos'è, non ho idea di come funziona, robe del genere, quindi sono delle cose che, pur essendo senior, io non ho idea di come funzionano e quelle ho bisogno di capirle. La roba di YouTube invece sarebbe proprio bello poter consigliare video di una certa qualità, che potrebbero essere magari anche in base all'autorità che in qualche modo quello YouTuber, non lo so, ci sono dei modi, non so come però, proprio la cosa di poter dire "vatti a guardare questo video che parla esattamente di questa cosa e lo spiega bene", sarebbe molto interessante, no? Oppure "vai a leggere questo articolo per approfondire questa cosa qui specifica che se ne parla molto bene". Sì, sul punto 8 comunque continua a dire che il quiz è solo una cosa così, cioè non serve veramente, diciamo tipo ti vuoi mettere alla prova per vedere se hai capito; e anche se l'utente sbaglia lì, la cosa non è dire "ah, è sbagliato, adesso devi ripetere il quiz, non l'hai passato, sei da merda", ma al contrario è: "guarda qua, hai sbagliato per questo motivo, quindi forse non ti era stata chiara questa cosa qui"; e se ne vuoi capire meglio come funziona questo, puoi andare a leggere questo articolo e vedere questo video.
+> And these quizzes don't have to be blocking: if I got it wrong, it tells me "No, look, it's for this reason", and gives me a full explanation. About point 5, I keep saying this isn't a PR review; there are other tools for that. This is about understanding what it is, what's being introduced. Yes, the fact that it doesn't know who I am is fair; it would be better to adapt to me and understand me. Maybe I'd leave that for a later stage, but I'd start from the assumption that we're all mid-level developers. We're certainly not juniors, so there's no need to explain trivial concepts to me. But the feature itself, for example: next we'll have to implement voice-to-voice, and there you have... TTS, which I have no idea what it is or how it works, things like that. Those are things that, even as a senior, I have no idea how they work, and I need to understand them. The YouTube part would be really nice: being able to recommend quality videos, maybe based on the authority of the YouTuber somehow. I don't know, there are ways, I don't know how, but being able to say "go watch this video that talks exactly about this and explains it well" would be very interesting, right? Or "go read this article to dig into this specific thing, it covers it very well". And on point 8, I still say the quiz is just a side thing; it isn't really needed, it's more like "do you want to test yourself to see if you understood". And even if the user gets it wrong, the point isn't to say "ah, wrong, now you have to retake the quiz, you didn't pass, you suck", but the opposite: "look here, you got it wrong for this reason, so maybe this wasn't clear to you"; and if you want to understand better how this works, you can go read this article and watch this video.
 >
-> Allora, per quanto riguarda il fatto di diventare una vera app, sono d'accordo con te, nel senso che io avrei due tipi di target. Uno è lo sviluppatore, che sviluppa un locale su cloud e dice: "Ok, dai, fammi studiare un attimo che cacchio ha fatto Cloud qui, perché non ho idea", e quindi ha bisogno di capirlo. Il secondo target, invece, sono quelli che vanno a fare review.
+> As for becoming a real app, I agree with you, in the sense that I'd have two kinds of target. One is the developer, working locally or in the cloud, who says: "OK, let me study what the heck Claude did here, because I have no idea", and so needs to understand it. The second target is the people who do reviews.
 >
-> Stavo pensando: su GitHub puoi prendere e collegare questa cosa, dare i permessi a questa app, poi ci metti un flag perché non tutte le PR hanno bisogno di questa cosa, ma magari ci sono delle PR, soprattutto le stack al momento su Pitap, fare le stack che mette un flag, una label che prende e ti... oppure si mette un link dentro la descrizione che genera questo contenuto, tu lo clicchi, vai su una pagina esterna dove tutta questa roba qui è spiegata e tu prendi il test.
+> I was thinking: on GitHub you could connect this thing, grant permissions to the app, then add a flag, because not every PR needs this. But maybe there are PRs, especially stacked ones, at the moment [with a stacked-PR tool], that get a flag, a label that triggers it... or a link in the description that generates this content; you click it, you go to an external page where all of this is explained, and you take the test.
 >
-> Per assurdo si potrebbe anche fare, alcuni potrebbero dire: "Questa roba non si immergia finché due persone su tre non leggono questa roba e fanno questo test", e quindi si possono mettere magari proprio dei check su GitHub che vanno a controllare se due persone hanno fatto questo test; e magari si può essere ancora più stringente, dove si dice due persone su tre o su cinque, almeno due persone non solo hanno fatto questo, hanno letto, solo hanno fatto il test, ma l'hanno anche passato.
+> Taking it further, some might even say: "This doesn't get merged until two people out of three have read this and taken this test", so you could add checks on GitHub that verify two people took the test; and maybe be even stricter: two people out of three, or out of five, have not only read it and taken the test, but also passed it.
 >
-> Quindi il prodotto è ok una skill, se vogliamo, che ci può stare, ma anche un'app. Io proprio farei un'app che in qualche modo prende, si connette... cioè sarebbe bello che si fa tutto dentro l'app, quindi che si chiude tu da dentro l'app, scegli la sessione di Cloud, vedi che attiva se tramite API si può fare questa roba di Cloud o di Codex e dici:
+> So the product: a skill is OK, if we want, that's fine, but also an app. I'd really make an app that somehow connects... it would be nice if everything happened inside the app: from inside the app you pick the Claude session, see whether this can be done through the Claude or Codex API, and say:
 >
-> "Ok, voglio che mi spieghi la roba di questa sessione", quindi qualcosa del genere; mentre sulla parte GitHub, ovviamente, che crea un link a una pagina fatta per bene, web, dove tu vai lì, quindi vai fuori da GitHub.
+> "OK, I want you to explain this session's work to me", something like that; while on the GitHub side, obviously, it creates a link to a properly made web page, and you go there, outside GitHub.
 >
-> Tutta questa cosa comunque che adesso io sto dicendo qui voglio che venga trascritta tutta, quindi su un file segnati, scriviti giù tutte le cose che io ti ho detto perché non vorrei che andassero perse in nessun modo. La parte della learning history potrebbe essere interessante, dove comunque uno va a rivedere, è collegata anche alle PR che ha fatto; dice magari "guarda questa, me la studio per bene domani", qualcosa del genere, ci può stare.
-
-*(Speech-to-text notes: "emergiarle/immergia" = merge; "Cloud" = Claude; "sull'inconsigliate" = sui (link) consigliati; "Pitap" = probably a stacked-PR tool such as Graphite.)*
+> Anyway, I want everything I'm saying here transcribed, so write it all down in a file, everything I told you, because I don't want any of it lost. The learning-history part could be interesting: you can go back and review, it's linked to the PRs you made; you might say "look at this one, I'll study it properly tomorrow", something like that.
 
 ### Message 4 (2026-10-09): feedback on v2
 
-> allora delle cose:
-> - i link e i video non mi interessano tutti in fondo, puoi metterli in line mentre spieghi un concetto o alla fine del capitolo
-> - anche i video puoi fare degli embedding cosi non devo lasciare la pagina
-> - mi interessano spiegazioni mirate a capire i concetti, a livello di architettura come si unisce al resto, perche' una certa soluzione serve, come ci si puo' arrivare
-> - nei test non mi interessa per forza cose sul mio codice (tipo se chiamo questo endpoint non autenticato che ritorna 401) ma altro
+> So, a few things:
+> - I don't want the links and videos all at the bottom; you can put them inline while you explain a concept, or at the end of the chapter
+> - you can also embed the videos, so I don't have to leave the page
+> - I'm interested in explanations aimed at understanding the concepts, at the architecture level: how it joins the rest, why a certain solution is needed, how one could arrive at it
+> - in the tests I'm not necessarily interested in things about my code (like "if I call this endpoint unauthenticated it returns 401"), but other things
 >
-> COse che mi sono piaciute: ho letto velocemente e il contenuto mi e' piaciuto molto, e' proprio quello che volevo imparare. Forse manca la roba della text to voice delle tre pr che avevo gia' aperto
+> Things I liked: I read it quickly and I really liked the content; it's exactly what I wanted to learn. Maybe what's missing is the [voice-to-text] stuff from the three PRs I had already opened.
 
 *(Interpretation: "the three PRs I had already opened" = the July voice-to-text dictation series #933 backend, #936 web, #937 mobile, i.e. the STT half of the cascade.)*
 
 ### Message 5 (2026-10-09): layout
 
-> e una cosa, non mi piace il wall of text, sarebbe bello avere dei moduli, o altro, non so bene. O almeno un paio di cose (tipo quiz) li metterei da altra parte, su altre pagina, o almeno raggiungibile da una sidebar, non so
+> And one thing: I don't like the wall of text; it would be nice to have modules, or something else, I'm not sure. Or at least a couple of things (like the quiz) I'd put somewhere else, on other pages, or at least reachable from a sidebar, I don't know.
 
 ### Message 6 (2026-10-09): onboarding by level (for the app)
 
-> Nell'app, quando poi la faremo, ricordiamoci di fare una cosa, un onboarding per l'utente, perché stavo pensando... Il nostro utente potrebbe essere anche un ragazzino vibecoder che ha appena cominciato a scrivere codice e non sa niente, quindi i concetti lì andrebbero spiegati molto più nel dettaglio, non come noi che siamo dei senior, mentre appunto un senior è diverso, quindi questa è una roba da ricordarsi proprio quando faremo l'app.
+> In the app, when we build it, let's remember to do one thing, an onboarding for the user, because I was thinking... Our user could also be a young vibecoder who has just started writing code and knows nothing, so the concepts there should be explained in much more detail, not like for us seniors; a senior is different. So this is something to remember precisely when we build the app.
 
 ### Message 7 (2026-10-09): ask-an-LLM inside the app
 
-> Un'altra cosa da mettere in lista per quando faremo l'app è che tante volte magari uno ha una domanda su un concetto, su un qualcosa, quindi comunque metterci un LLM che risponde a domande e quant'altro su quell'argomento ci potrebbe stare.
+> Another thing to put on the list for when we build the app: very often someone has a question about a concept, about something, so adding an LLM that answers questions and so on about that topic could make sense.
 
 ### Message 8 (2026-10-09): the PRs shown as bare numbers
 
-> Riguardo invece le PR che mi ha messo lì, no, io intendevo proprio, cioè, non mi convince così con solo i numeri. Sarebbe proprio, non lo so, non saprei bene come fare perché, per esempio, in questo caso ci sono tre PR che parlano, cioè, che è proprio quello, magari che io adesso ho aperto e dico: "Guarda, sono proprio queste tre PR qui".
+> About the PRs you put there: no, what I meant was... I'm not convinced by just the numbers. It would be, I don't know, I'm not sure how to do it, because, for example, in this case there are three PRs that are exactly the thing, the ones I've just opened, and I say: "Look, it's exactly these three PRs".
 >
-> Ho aperto, poi giustamente tu ne hai trovate altre tre più vecchie, ed è fatto giusto bene perché lì ho aggiunto audio to text, e quindi è comunque da vedere un po' nell'insieme questa cosa, questi concetti. Tuttavia, così mi sembra un po' buttati lì; non si capisce adesso quali tre sono quelli di adesso, quali vecchi, se sono da mergiare o emergiate, non lo so. So solo che non mi straconvince.
+> I opened them, and then, rightly, you found three older ones, and that's exactly right, because there I added audio-to-text, so this should be seen as a whole, these concepts. However, like this it feels a bit thrown in; you can't tell which three are the current ones and which are the old ones, whether they're to be merged or already merged, I don't know. I just know it doesn't fully convince me.
 
 ### Message 9 (2026-10-09): onboarding onto a whole repo
 
-> Un'altra cosa, stavo pensando: questo potrebbe essere usato, che tu dici "io sono nuovo in questo progetto, sono appena arrivato, sono appena stato assunto". Quindi si prende la repo e si dice: "Tu, adesso, voglio capire una cosa di una PR specifica della sessione mia che ho appena fatto, ma voglio capire tutta questa repo".
+> Another thing I was thinking: this could be used when you say "I'm new to this project, I just arrived, I just got hired". So you take the repo and say: "Now, I want to understand something about a specific PR from my session that I just did, but I want to understand this whole repo".
 >
-> E allora il nostro programma dovrebbe analizzare per bene e anche lì creare tante spiegazioni, ognuna con i suoi moduli di parte del progetto, che non vanno solo a spiegare la repo in sé ma anche i concetti in quella repo e così via, no? Per migliorare, cioè per bootstrappare la velocità di apprendimento. Comunque sono cose che una persona già fa adesso: prende, fa partire Claude e si mette a fargli domande. Però qui aggiungerebbe più cose, no?
+> And then our program should analyse it properly and create many explanations there too, each with its own modules for a part of the project, which don't only explain the repo itself but also the concepts in that repo and so on, right? To improve, I mean to bootstrap the speed of learning. Anyway, these are things people already do now: they start Claude and begin asking it questions. But here it would add more, right?
+
+### Message 10 (2026-10-10): everything in the repo in English
+
+> Listen, something very important: since the README and everything else is written in Italian, but it's meant for an English-speaking audience, everything must be written in English: the skills, the README, the vision.
+>
+> I talk to you in Italian because it's my native language, but everything that goes into the code, comments, anything, must be in English. This must be a very important rule. So now update the repo, all in English, and I'd like the README to also have a couple of lines on how to install this skill.

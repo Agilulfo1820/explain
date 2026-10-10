@@ -1,24 +1,25 @@
 <!doctype html>
-<html lang="it">
+<!-- Set lang to the explainer's language: it picks the UI strings in assets/i18n.js. -->
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{{TITOLO}}</title>
+<title>{{TITLE}}</title>
 <!-- Bump ?v=N on every change to assets, or the browser serves stale CSS/JS. -->
 <link rel="stylesheet" href="../assets/explainer.css?v=1">
 </head>
-<body class="course" data-course="{{TITOLO}}">
-<button type="button" class="menu-toggle">☰ Moduli</button>
+<body class="course" data-course="{{TITLE}}">
+<button type="button" class="menu-toggle">☰ Modules</button>
 
 <aside class="sidebar">
   <div class="brand">
-    <div class="eyebrow">Spiegazione · {{REPO}}</div>
-    <div class="name">{{TITOLO}}</div>
+    <div class="eyebrow">Explainer · {{REPO}}</div>
+    <div class="name">{{TITLE}}</div>
     <div class="prs">
       <a href="https://github.com/{{OWNER}}/{{REPO}}/pull/{{N}}" title="{{backend|web|mobile}}">#{{N}}</a>
     </div>
   </div>
-  <nav class="modules" aria-label="Moduli"></nav>
+  <nav class="modules" aria-label="Modules"></nav>
 </aside>
 
 <main>
@@ -30,34 +31,34 @@
 -->
 
 <!-- ===================================================================== -->
-<section class="module" id="intro" data-title="In 3 minuti" data-group="Inizia qui" data-time="3 min">
-<div class="eyebrow">{{DATA}}</div>
-<h1>{{TITOLO}}</h1>
-<p class="module-intro">{{Cosa entra e perché conta, in due frasi. Dire che non è una code review.}}</p>
+<section class="module" id="intro" data-title="In 3 minutes" data-group="Start here" data-time="3 min">
+<div class="eyebrow">{{DATE}}</div>
+<h1>{{TITLE}}</h1>
+<p class="module-intro">{{What comes in and why it matters, in two sentences. Say it is not a code review.}}</p>
 
 <div class="grid-3">
-  <div class="tile"><h4>{{pezzo 1}}</h4><p>{{...}}</p></div>
-  <div class="tile"><h4>{{pezzo 2}}</h4><p>{{...}}</p></div>
-  <div class="tile"><h4>{{pezzo 3}}</h4><p>{{...}}</p></div>
+  <div class="tile"><h4>{{piece 1}}</h4><p>{{...}}</p></div>
+  <div class="tile"><h4>{{piece 2}}</h4><p>{{...}}</p></div>
+  <div class="tile"><h4>{{piece 3}}</h4><p>{{...}}</p></div>
 </div>
 
-<div class="key"><strong>Tre idee da portarti via</strong>
+<div class="key"><strong>Three ideas to take away</strong>
 <ol style="margin:.3em 0 0;padding-left:1.2em">
-<li><strong>{{idea}}</strong> {{perché}}</li>
+<li><strong>{{idea}}</strong> {{why}}</li>
 </ol></div>
 
 <div class="grid-2">
-  <a class="tile" href="#{{primo-modulo-concetti}}" style="text-decoration:none;color:inherit"><h4>I concetti →</h4><p>{{...}}</p></a>
-  <a class="tile" href="#arrivarci" style="text-decoration:none;color:inherit"><h4>Questa feature →</h4><p>{{...}}</p></a>
+  <a class="tile" href="#{{first-concept-module}}" style="text-decoration:none;color:inherit"><h4>The concepts →</h4><p>{{...}}</p></a>
+  <a class="tile" href="#getting-there" style="text-decoration:none;color:inherit"><h4>This feature →</h4><p>{{...}}</p></a>
 </div>
 </section>
 
 <!-- ===================================================================== -->
-<!-- CONCEPT MODULE: shows every building block. Copy, keep what you need. -->
-<section class="module" id="{{concetto}}" data-title="{{Titolo concetto}}" data-group="I concetti" data-time="{{N}} min">
-<div class="eyebrow">Modulo 1 · {{sottotitolo}}</div>
-<h1>{{Titolo concetto}}</h1>
-<p class="module-intro">{{Definizione in una frase, e perché serve qui.}}</p>
+<!-- CONCEPT MODULE: shows every building block. Copy it, keep what you need. -->
+<section class="module" id="{{concept}}" data-title="{{Concept title}}" data-group="Concepts" data-time="{{N}} min">
+<div class="eyebrow">Module 1 · {{subtitle}}</div>
+<h1>{{Concept title}}</h1>
+<p class="module-intro">{{One-sentence definition, and why it matters here.}}</p>
 
 <!-- Two or three tiles instead of a paragraph of comparisons -->
 <div class="grid-2">
@@ -66,104 +67,105 @@
 </div>
 
 <!-- Numbered flow for "how it works" -->
-<h2>Come funziona</h2>
+<h2>How it works</h2>
 <div class="flow">
-  <div><strong>{{passo}}.</strong> {{spiegazione breve}}</div>
-  <div><strong>{{passo}}.</strong> {{spiegazione breve}}</div>
+  <div><strong>{{step}}.</strong> {{short explanation}}</div>
+  <div><strong>{{step}}.</strong> {{short explanation}}</div>
 </div>
 
 <!-- Inline embedded video, right next to the concept it explains (video.js) -->
-<div class="yt inline-video" id="v-{{slug}}" data-id="{{YOUTUBE_ID}}" data-start="0" data-title="{{titolo da oEmbed}}" data-meta="{{Canale}} · {{N}} min"><p>{{Perché vale la pena: cosa spiega bene, perché la fonte è autorevole.}}</p></div>
+<div class="yt inline-video" id="v-{{slug}}" data-id="{{YOUTUBE_ID}}" data-start="0" data-title="{{title from oEmbed}}" data-meta="{{Channel}} · {{N}} min"><p>{{Why it is worth watching: what it explains well, why the source is authoritative.}}</p></div>
 
 <!-- Tabs for parallel variants (web / mobile, alternatives, surfaces) -->
 <div class="tabs">
-  <div class="tab-panel" data-label="{{Variante A}}"><p>{{...}}</p></div>
-  <div class="tab-panel" data-label="{{Variante B}}"><p>{{...}}</p></div>
+  <div class="tab-panel" data-label="{{Variant A}}"><p>{{...}}</p></div>
+  <div class="tab-panel" data-label="{{Variant B}}"><p>{{...}}</p></div>
 </div>
 
 <!-- The one-sentence takeaway -->
-<div class="key"><strong>Il concetto</strong>{{l'idea che vale anche fuori da questo progetto}}</div>
+<div class="key"><strong>The concept</strong>{{the idea that also holds outside this project}}</div>
 
 <!-- Optional depth, collapsed -->
-<details><summary>{{Dove ci serve nel codice}}</summary>
-<div class="file">{{path/del/file.ts}}</div>
-<pre><code>{{snippet breve, commenti in italiano}}</code></pre>
+<details><summary>{{Where we use it in the code}}</summary>
+<div class="file">{{path/to/file.ts}}</div>
+<pre><code>{{short snippet}}</code></pre>
 </details>
 
 <!-- Step-by-step animated diagram (stepper.js). One .scenario per tab. -->
 <div class="stepper" data-stepper>
-<svg viewBox="0 0 760 150" role="img" aria-label="{{descrizione}}">
-  <g class="node" data-node="a"><rect x="8" y="40" width="160" height="70" rx="10"/><text x="88" y="70" text-anchor="middle">{{A}}</text><text x="88" y="90" text-anchor="middle" class="sub">{{sotto}}</text></g>
+<svg viewBox="0 0 760 150" role="img" aria-label="{{description}}">
+  <g class="node" data-node="a"><rect x="8" y="40" width="160" height="70" rx="10"/><text x="88" y="70" text-anchor="middle">{{A}}</text><text x="88" y="90" text-anchor="middle" class="sub">{{subtitle}}</text></g>
   <g class="node" data-node="b"><rect x="300" y="40" width="160" height="70" rx="10"/><text x="380" y="70" text-anchor="middle">{{B}}</text></g>
   <path id="ab" class="edge" d="M168 75 L300 75"/>
 </svg>
 <div class="scenario" data-label="{{Scenario}}">
-  <div class="st" data-nodes="a"><h4>{{1. titolo del passo}}</h4><p>{{cosa succede}}</p></div>
-  <div class="st" data-nodes="a b" data-edges="ab ab:r" data-state="ok"><h4>{{2. ...}}</h4><p>{{...}}</p><pre><code>{{snippet di questo passo, con <mark>la riga chiave</mark>}}</code></pre></div>
+  <div class="st" data-nodes="a"><h4>{{1. step title}}</h4><p>{{what happens}}</p></div>
+  <div class="st" data-nodes="a b" data-edges="ab ab:r" data-state="ok"><h4>{{2. ...}}</h4><p>{{...}}</p><pre><code>{{this step's snippet, with <mark>the key line</mark>}}</code></pre></div>
 </div>
 </div>
 
-<!-- End of module: the rest of the sources, each with its "why" -->
+<!-- End of module: the remaining sources, each with its "why" -->
 <div class="further">
-<h3>Per approfondire questo modulo</h3>
+<h3>Go deeper on this module</h3>
 <div class="yt-grid">
-  <div class="yt" id="v-{{slug2}}" data-id="{{YOUTUBE_ID}}" data-title="{{titolo}}" data-meta="{{Canale}} · {{N}} min"><p>{{perché}}</p></div>
+  <div class="yt" id="v-{{slug2}}" data-id="{{YOUTUBE_ID}}" data-title="{{title}}" data-meta="{{Channel}} · {{N}} min"><p>{{why}}</p></div>
 </div>
 <ul class="links">
-  <li><span class="kind">doc</span><a href="{{URL}}">{{titolo}}</a> ({{autore}})<span class="why-src">{{perché vale la pena}}</span></li>
+  <li><span class="kind">doc</span><a href="{{URL}}">{{title}}</a> ({{author}})<span class="why-src">{{why it is worth reading}}</span></li>
 </ul>
 </div>
 </section>
 
 <!-- ===================================================================== -->
 <!-- DERIVATION MODULE: the architecture grows one piece per problem (reveal mode). -->
-<section class="module" id="arrivarci" data-title="Come ci si arriva" data-group="Questa feature" data-time="8 min">
-<div class="eyebrow">Modulo {{N}} · ricostruiamo la soluzione da zero</div>
-<h1>Come ci si arriva</h1>
-<p class="module-intro">Partiamo dall'idea più semplice e aggiungiamo un pezzo solo quando un problema concreto lo rende necessario.</p>
+<section class="module" id="getting-there" data-title="How you get there" data-group="This feature" data-time="8 min">
+<div class="eyebrow">Module {{N}} · rebuilding the solution from scratch</div>
+<h1>How you get there</h1>
+<p class="module-intro">Start from the simplest idea and add a piece only when a concrete problem makes it necessary.</p>
 <div class="stepper" data-stepper data-reveal>
-<svg viewBox="0 0 760 200" role="img" aria-label="L'architettura che cresce passo per passo">
+<svg viewBox="0 0 760 200" role="img" aria-label="The architecture growing step by step">
   <g class="node" data-node="client"><rect x="8" y="70" width="130" height="60" rx="10"/><text x="73" y="104" text-anchor="middle">Client</text></g>
   <g class="node" data-node="backend"><rect x="300" y="70" width="160" height="60" rx="10"/><text x="380" y="104" text-anchor="middle">Backend</text></g>
   <path id="cb" class="edge" d="M138 100 L300 100"/>
 </svg>
-<div class="scenario" data-label="Da zero all'architettura">
-  <div class="st" data-nodes="client"><h4>Il bisogno</h4><p>{{...}}</p></div>
+<div class="scenario" data-label="From zero to the architecture">
+  <div class="st" data-nodes="client"><h4>The need</h4><p>{{...}}</p></div>
   <!-- data-nodes = everything visible so far, data-new = just added, data-links = static edges shown -->
-  <div class="st" data-nodes="client backend" data-new="backend" data-links="cb"><h4>{{passo}}</h4><p>{{...}} <strong>Problema:</strong> {{cosa si rompe ancora}}</p><p class="qa">✅ {{cosa serve, che diventa il passo successivo}}</p></div>
+  <div class="st" data-nodes="client backend" data-new="backend" data-links="cb"><h4>{{step}}</h4><p>{{...}} <strong>Problem:</strong> {{what still breaks}}</p><p class="qa">✅ {{what is needed, which becomes the next step}}</p></div>
 </div>
 </div>
-<div class="key"><strong>Il metodo</strong>Per ogni pezzo chiediti: “cosa si rompe se lo tolgo?”.</div>
+<div class="key"><strong>The method</strong>For every piece, ask: “what breaks if I remove it?”.</div>
 </section>
 
 <!-- Further feature modules, in this order when they apply:
-     architettura (Come si unisce al resto), viaggio (Il viaggio di una richiesta,
-     stepper with scenarios + snippets), scelte (tabs: alternative, numeri),
-     client or other cross-cutting concepts, fuori (Cosa resta fuori). -->
+     fits-in (How it fits in), journey (A request's journey: stepper with
+     scenarios + snippets), choices (tabs: alternatives, numbers),
+     client or other cross-cutting concepts, left-out (What's left out). -->
 
 <!-- ===================================================================== -->
-<section class="module" id="quiz" data-title="Quiz" data-group="Strumenti" data-tool>
-<h1>Mettiti alla prova</h1>
-<p class="module-intro">Domande sui concetti, non sul codice. Non blocca niente: se sbagli, ti spiego perché e ti indico cosa rivedere.</p>
+<section class="module" id="quiz" data-title="Quiz" data-group="Tools" data-tool>
+<h1>Test yourself</h1>
+<p class="module-intro">Questions about the concepts, not the code. Nothing is blocked: if you get one wrong, you see why and what to review.</p>
 <div class="quiz" data-quiz>
 <!-- QUIZ:START -->
 <!-- QUIZ:END -->
 <div class="score"></div>
 <div class="summary"></div>
-<button type="button" class="reset">Ricomincia il quiz</button>
+<button type="button" class="reset">Restart the quiz</button>
 </div>
-<div class="ask">💬 <strong>Qualcosa non è chiaro?</strong> Chiedi all'agente: è il tuo insegnante su queste PR. Prova per esempio: “{{domanda utile}}”.</div>
+<div class="ask">💬 <strong>Something unclear?</strong> Ask the agent: it is your teacher on these PRs. For example: “{{useful question}}”.</div>
 </section>
 
 <!-- ===================================================================== -->
-<section class="module" id="glossario" data-title="Glossario" data-group="Strumenti" data-tool>
-<h1>Glossario</h1>
+<section class="module" id="glossary" data-title="Glossary" data-group="Tools" data-tool>
+<h1>Glossary</h1>
 <table>
-<tr><td><strong>{{termine}}</strong></td><td>{{definizione in una riga}}</td></tr>
+<tr><td><strong>{{term}}</strong></td><td>{{one-line definition}}</td></tr>
 </table>
 </section>
 
 </main>
+<script src="../assets/i18n.js?v=1"></script>
 <script src="../assets/video.js?v=1"></script>
 <script src="../assets/stepper.js?v=1"></script>
 <script src="../assets/quiz.js?v=1"></script>

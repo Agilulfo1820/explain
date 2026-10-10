@@ -66,11 +66,14 @@
     const next = lessons[i + 1];
     foot.innerHTML =
       (questions
-        ? `<a class="check" href="#quiz/${m.id}">✎ Mettiti alla prova su questo modulo (${questions} ${questions === 1 ? 'domanda' : 'domande'})</a>`
+        ? `<a class="check" href="#quiz/${m.id}">${window.explainerText('checkModule', {
+            n: questions,
+            questions: window.explainerText(questions === 1 ? 'question' : 'questions'),
+          })}</a>`
         : '') +
       '<div class="pn">' +
       (prev ? `<a class="prev" href="#${prev.id}">← ${prev.dataset.title}</a>` : '<span></span>') +
-      (next ? `<a class="next" href="#${next.id}">${next.dataset.title} →</a>` : '<a class="next" href="#quiz">Quiz finale →</a>') +
+      (next ? `<a class="next" href="#${next.id}">${next.dataset.title} →</a>` : `<a class="next" href="#quiz">${window.explainerText('finalQuiz')}</a>`) +
       '</div>';
     m.appendChild(foot);
   });
